@@ -10,7 +10,11 @@ if [ ! -f /app/data/base.db ]; then
 	cd /app/server && npm run init-db
 else
 	echo "База данных уже существует"
+	cd /app/server && npm run init-db
 fi
+
+echo "=== Заполнение демо-данными ==="
+cd /app/server && npm run seed
 
 # Запуск сервера
 echo "=== Запуск приложения ==="
