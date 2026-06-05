@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  line-height: 1.6;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface-tertiary text-text hover:bg-gray-200;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 text-text hover:bg-gray-50;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-text 
+           focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50
+           placeholder:text-text-light transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-lg hover:border-primary/20 transition-all duration-300;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in,
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-out;
+}
+
+/* Role background gradients */
+@keyframes bgShift {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.role-bg-tourist {
+  background: linear-gradient(135deg, #fef9e7 0%, #fef3c7 40%, #fde68a 100%);
+  animation: bgShift 0.5s ease-out;
+}
+
+.role-bg-operator {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 40%, #bfdbfe 100%);
+  animation: bgShift 0.5s ease-out;
+}
+
+.role-bg-admin {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 40%, #bbf7d0 100%);
+  animation: bgShift 0.5s ease-out;
+}
+
+.role-content-card {
+  @apply bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-white/60;
+  transition: all 0.3s ease;
+}
+
+.role-content-card:hover {
+  @apply shadow-md bg-white/95;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
